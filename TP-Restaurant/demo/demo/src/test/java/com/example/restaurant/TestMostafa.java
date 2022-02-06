@@ -27,6 +27,7 @@ public class priceTests {
   
 	assertNotEquals(franchise.getPrice(), price);
   }
-} 
+}
+
 
     
