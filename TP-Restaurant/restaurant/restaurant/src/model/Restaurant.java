@@ -12,6 +12,8 @@ public class Restaurant {
 	private List<Server> servers = new ArrayList<Server>();
 	private List<Order> ordersToTransmit = new ArrayList<Order>();
 	
+	public double salesFigures = 0.0;
+	
 	private Butler butler;
 	
 	private Boolean serviceInProgress = false;
@@ -25,8 +27,9 @@ public class Restaurant {
     }
 
     public Double getSalesFigures() {
-    	Double salesFigures = 0.0;
-    	for(Server s : servers) salesFigures += s.getSalesFigures();
+    	for(Server s : servers) {
+    		salesFigures += s.getSalesFigures();
+    	}
     	return salesFigures;
     }
     
@@ -50,11 +53,18 @@ public class Restaurant {
     }
     
     public void manageOrder(Order order) {
-    	if(order.isOrderToTransmit()) ordersToTransmit.add(order);
+//    	if(order.isOrderToTransmit()) ordersToTransmit.add(order);
     	if(order.isFood()) kitchen.add(order);
     }
     
-    public void transmitOrderToCops() {
+    public void manageOrdersToTransmit() {
+    	for(Server server : servers) {
+    		ordersToTransmit.addAll(server.getOrdersToTransmit());
+    	}
+    }
+    
+    public void transmitOrdersToCops() {
+    	manageOrdersToTransmit();
     	for(Order o : ordersToTransmit) {
     		o.transmitToCops();
     	}
@@ -71,5 +81,13 @@ public class Restaurant {
 
 	public void setMenu(Menu menu) {
 		this.menu = menu;
+	}
+	
+	public List<Order> getOrdersToTransmit(){
+		return ordersToTransmit;
+	}
+	
+	public List<Table> getFreeTables(){
+		return freeTables;
 	}
 }

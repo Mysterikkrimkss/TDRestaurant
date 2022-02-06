@@ -14,16 +14,27 @@ public class Server {
 	private List<Table> tables = new ArrayList<>();
     
     private List<Order> orders = new ArrayList<>();
+    
+    private List<Order> ordersToTransmit = new ArrayList<>();
 
-    public void takeOrder(Double amount) {
-    	Order order = new Order();
-    	orders.add(order);
-        salesFigures += amount;
-        restaurant.manageOrder(order);
+    public Boolean takeOrder(Dish dish) {
+    	Order order = new Order(dish);
+    	if(order.isInStock()) {
+	    	orders.add(order);
+	        salesFigures += dish.getPrice();
+	        restaurant.manageOrder(order);
+	        return true;
+    	}
+    	return false;
     }
 
     public Server() {
     	
+    }
+    
+    public Server(String nom, Double salary) {
+    	this.nom = nom;
+    	this.salary = salary;
     }
     
     public void stopTable(Table table) {
@@ -36,9 +47,8 @@ public class Server {
     	table.setServer(this);
     }
     
-    public Server(String nom, Double salary) {
-    	this.nom = nom;
-    	this.salary = salary;
+    public void serveDish(Table table, Dish dish) {
+    	table.takeDish(dish);
     }
     
     
@@ -77,5 +87,9 @@ public class Server {
 
 	public void setSalesFigures(Double salesFigures) {
 		this.salesFigures = salesFigures;
+	}  
+	
+	public List<Order> getOrdersToTransmit() {
+		return this.ordersToTransmit;
 	}  
 }
