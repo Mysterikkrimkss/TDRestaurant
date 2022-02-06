@@ -88,11 +88,8 @@ public class Server {
 	public void setSalesFigures(Double salesFigures) {
 		this.salesFigures = salesFigures;
 	}  
-<<<<<<< HEAD
 	
 	public List<Order> getOrdersToTransmit() {
 		return this.ordersToTransmit;
 	}  
-=======
->>>>>>> 594099a (correction git)
 }
