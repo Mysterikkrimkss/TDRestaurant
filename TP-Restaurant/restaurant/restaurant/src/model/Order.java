@@ -2,13 +2,19 @@ package model;
 
 import java.time.Duration;
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> 594099a (correction git)
 
 public class Order {
 	
 	private enum OrderStatus{
+<<<<<<< HEAD
 		NOT_IN_STOCK,
+=======
+>>>>>>> 594099a (correction git)
 		PAID,
 		UNPAID,
 		TO_TRANSMIT_TO_COPS,
@@ -20,8 +26,11 @@ public class Order {
 	private LocalDate takeDate;
 	private Boolean isFood;
 	
+<<<<<<< HEAD
 	private List<Dish> dishes = new ArrayList<>();
 	
+=======
+>>>>>>> 594099a (correction git)
 	
 	public Order() {
 		status = OrderStatus.UNPAID;
@@ -30,6 +39,7 @@ public class Order {
 		isFood = true;
 	}
 	
+<<<<<<< HEAD
 	public Order(Dish dish) {
 		if(dish.decrementStockAmount()) {
 			status = OrderStatus.UNPAID;
@@ -42,6 +52,8 @@ public class Order {
 		}
 	}
 	
+=======
+>>>>>>> 594099a (correction git)
 	public Order(Boolean isFood) {
 		status = OrderStatus.UNPAID;
 		pinned = true;
@@ -73,9 +85,12 @@ public class Order {
 		return isFood;
 	}
 	
+<<<<<<< HEAD
 	public Boolean isInStock() {
 		if(status.equals(OrderStatus.NOT_IN_STOCK)) return false;
 		return true;
 	}
 	
+=======
+>>>>>>> 594099a (correction git)
 }

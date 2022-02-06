@@ -10,6 +10,7 @@ public class Kitchen {
 	public void add(Order order) {
 		tasksToDo.add(order);
 	}
+<<<<<<< HEAD
 	
 	public void prepareDish(Server server, Table table, Dish dish) {
 		if(dish.decrementStockAmount()) {
@@ -20,4 +21,6 @@ public class Kitchen {
 	public void ringServer(Server server, Table table, Dish dish) {
 		server.serveDish(table, dish);
 	}
+=======
+>>>>>>> 594099a (correction git)
 }

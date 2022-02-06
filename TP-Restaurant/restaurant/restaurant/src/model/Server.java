@@ -14,6 +14,7 @@ public class Server {
 	private List<Table> tables = new ArrayList<>();
     
     private List<Order> orders = new ArrayList<>();
+<<<<<<< HEAD
     
     private List<Order> ordersToTransmit = new ArrayList<>();
 
@@ -26,17 +27,28 @@ public class Server {
 	        return true;
     	}
     	return false;
+=======
+
+    public void takeOrder(Double amount) {
+    	Order order = new Order();
+    	orders.add(order);
+        salesFigures += amount;
+        restaurant.manageOrder(order);
+>>>>>>> 594099a (correction git)
     }
 
     public Server() {
     	
     }
     
+<<<<<<< HEAD
     public Server(String nom, Double salary) {
     	this.nom = nom;
     	this.salary = salary;
     }
     
+=======
+>>>>>>> 594099a (correction git)
     public void stopTable(Table table) {
     	tables.remove(table);
     	table.removeServer();
@@ -47,8 +59,14 @@ public class Server {
     	table.setServer(this);
     }
     
+<<<<<<< HEAD
     public void serveDish(Table table, Dish dish) {
     	table.takeDish(dish);
+=======
+    public Server(String nom, Double salary) {
+    	this.nom = nom;
+    	this.salary = salary;
+>>>>>>> 594099a (correction git)
     }
     
     
@@ -88,8 +106,11 @@ public class Server {
 	public void setSalesFigures(Double salesFigures) {
 		this.salesFigures = salesFigures;
 	}  
+<<<<<<< HEAD
 	
 	public List<Order> getOrdersToTransmit() {
 		return this.ordersToTransmit;
 	}  
+=======
+>>>>>>> 594099a (correction git)
 }

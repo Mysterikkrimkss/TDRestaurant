@@ -12,8 +12,11 @@ public class Restaurant {
 	private List<Server> servers = new ArrayList<Server>();
 	private List<Order> ordersToTransmit = new ArrayList<Order>();
 	
+<<<<<<< HEAD
 	public double salesFigures = 0.0;
 	
+=======
+>>>>>>> 594099a (correction git)
 	private Butler butler;
 	
 	private Boolean serviceInProgress = false;
@@ -27,9 +30,14 @@ public class Restaurant {
     }
 
     public Double getSalesFigures() {
+<<<<<<< HEAD
     	for(Server s : servers) {
     		salesFigures += s.getSalesFigures();
     	}
+=======
+    	Double salesFigures = 0.0;
+    	for(Server s : servers) salesFigures += s.getSalesFigures();
+>>>>>>> 594099a (correction git)
     	return salesFigures;
     }
     
@@ -53,6 +61,7 @@ public class Restaurant {
     }
     
     public void manageOrder(Order order) {
+<<<<<<< HEAD
 //    	if(order.isOrderToTransmit()) ordersToTransmit.add(order);
     	if(order.isFood()) kitchen.add(order);
     }
@@ -65,6 +74,13 @@ public class Restaurant {
     
     public void transmitOrdersToCops() {
     	manageOrdersToTransmit();
+=======
+    	if(order.isOrderToTransmit()) ordersToTransmit.add(order);
+    	if(order.isFood()) kitchen.add(order);
+    }
+    
+    public void transmitOrderToCops() {
+>>>>>>> 594099a (correction git)
     	for(Order o : ordersToTransmit) {
     		o.transmitToCops();
     	}
@@ -82,6 +98,7 @@ public class Restaurant {
 	public void setMenu(Menu menu) {
 		this.menu = menu;
 	}
+<<<<<<< HEAD
 	
 	public List<Order> getOrdersToTransmit(){
 		return ordersToTransmit;
@@ -90,4 +107,6 @@ public class Restaurant {
 	public List<Table> getFreeTables(){
 		return freeTables;
 	}
+=======
+>>>>>>> 594099a (correction git)
 }

@@ -4,6 +4,7 @@ public class Dish {
 
 	private Double price = 0.0;
 	
+<<<<<<< HEAD
 	private Integer stockAmount;
 	
 	public void setPrice(Double price) {
@@ -25,4 +26,9 @@ public class Dish {
 	public Double getPrice() {
 		return price;
 	}
+=======
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+>>>>>>> 594099a (correction git)
 }

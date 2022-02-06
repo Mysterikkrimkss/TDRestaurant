@@ -6,9 +6,12 @@ import java.util.List;
 public class Franchise {
 
 	private List<Restaurant> restaurants = new ArrayList<Restaurant>();
+<<<<<<< HEAD
 	private List<Order> ordersToTransmit = new ArrayList<Order>();
 	
 	private Double salesFigures = 0.0;
+=======
+>>>>>>> 594099a (correction git)
 
 	private Menu menu;
 	
@@ -22,6 +25,7 @@ public class Franchise {
     	}
         this.restaurants = restaurants;
     }
+<<<<<<< HEAD
     
     public void manageOrders() {
     	for(Restaurant r : restaurants) {
@@ -43,6 +47,12 @@ public class Franchise {
         for(Restaurant r : restaurants) {
         	salesFigures += r.getSalesFigures();
         }
+=======
+
+    public Double getSalesFigures() {
+    	Double salesFigures = 0.0;
+        for(Restaurant r : restaurants) salesFigures += r.getSalesFigures();
+>>>>>>> 594099a (correction git)
         return salesFigures;
     }
     
