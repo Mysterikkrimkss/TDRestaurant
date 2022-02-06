@@ -15,7 +15,7 @@ public class priceTests {
 
     assertEquals(resto.getPrice(), price);
   }
-
+  
  @Test
  @ValueSource(doubles = {20.0, 15.0})
   public void VerifyThatPriceAreNotEqual(Double price) throws Exception {
@@ -27,6 +27,35 @@ public class priceTests {
   
 	assertNotEquals(franchise.getPrice(), price);
   }
+
+
+  @Test
+  @ValueSource(integers = {1, 3})
+  public void decrementDishTrue(Integer quantity) throws Exception 
+  {
+    Dish plat = new Dish();
+    Boolean resultat =false;    
+    plat.setStock(quantity);
+
+    resultat = plat.decrementStockAmount();
+
+    assertEquals(true,resultat);
+  } 
+
+ @Test
+  @ValueSource(integers = {-1, 0})
+  public void decrementDishFalse(Integer quantity) throws Exception 
+  {
+    Dish plat = new Dish();
+    Boolean resultat =false;    
+    plat.setStock(quantity);
+
+    resultat = plat.decrementStockAmount();
+
+    assertEquals(false,resultat);
+  }
+} 
+
 
 
   @Test
