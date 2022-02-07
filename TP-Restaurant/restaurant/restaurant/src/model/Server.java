@@ -9,21 +9,49 @@ public class Server {
 	private Double salary;
     private Double salesFigures = 0.0;
     
-    private Restaurant restaurant;
+    private Restaurant restaurant = new Restaurant();
     
 	private List<Table> tables = new ArrayList<>();
     
     private List<Order> orders = new ArrayList<>();
-
-    public void takeOrder(Double amount) {
-    	Order order = new Order();
-    	orders.add(order);
-        salesFigures += amount;
-        restaurant.manageOrder(order);
-    }
+    
+    private List<Order> ordersToTransmit = new ArrayList<>();
 
     public Server() {
     	
+    }
+    
+    public Server(String nom, Double salary) {
+    	this.nom = nom;
+    	this.salary = salary;
+    }
+    
+    public Boolean takeOrder(Dish dish) {
+    	Order order = new Order(dish);
+    	if(order.isInStock()) {
+	    	orders.add(order);
+	        salesFigures += dish.getPrice();
+	        manageOrder(order);
+	        return true;
+    	}
+    	return false;
+    }
+    
+    public Boolean takeOrder(Order order) {
+    	if(order.isInStock()) {
+	    	orders.add(order);
+	        salesFigures += order.getPrice();
+	        manageOrder(order);
+	        return true;
+    	}
+    	return false;
+    }
+    
+    public void manageOrder(Order order) {
+    	if(order.isOrderToTransmit()) {
+    		ordersToTransmit.add(order);
+    	}
+        restaurant.manageOrder(order);
     }
     
     public void stopTable(Table table) {
@@ -36,9 +64,8 @@ public class Server {
     	table.setServer(this);
     }
     
-    public Server(String nom, Double salary) {
-    	this.nom = nom;
-    	this.salary = salary;
+    public void serveDish(Table table, Dish dish) {
+    	table.takeDish(dish);
     }
     
     
@@ -62,6 +89,10 @@ public class Server {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+	
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
 
 	public Double getSalary() {
 		return salary;
@@ -77,5 +108,21 @@ public class Server {
 
 	public void setSalesFigures(Double salesFigures) {
 		this.salesFigures = salesFigures;
+	}  
+	
+	public List<Order> getOrdersToTransmit() {
+		return this.ordersToTransmit;
+	}
+
+	public void clearOrdersToTransmit() {
+		ordersToTransmit.clear();
+		
+	}
+
+	public void transmitOrderToCops() {
+    	for(Order o : ordersToTransmit) {
+    		o.transmitToCops();
+    	}
+    	clearOrdersToTransmit();				
 	}  
 }

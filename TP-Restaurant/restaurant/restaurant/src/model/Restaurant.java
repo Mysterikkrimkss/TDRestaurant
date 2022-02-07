@@ -12,23 +12,36 @@ public class Restaurant {
 	private List<Server> servers = new ArrayList<Server>();
 	private List<Order> ordersToTransmit = new ArrayList<Order>();
 	
+	public double salesFigures = 0.0;
+	
 	private Butler butler;
 	
 	private Boolean serviceInProgress = false;
 	
-	private Menu menu;
+	private Menu menu = new Menu();
 	
-	private Kitchen kitchen;
+	private Kitchen kitchen = new Kitchen();
 
     public Restaurant(List<Server> servers) {
         this.servers = servers;
     }
 
-    public Double getSalesFigures() {
-    	Double salesFigures = 0.0;
-    	for(Server s : servers) salesFigures += s.getSalesFigures();
-    	return salesFigures;
+    public Restaurant() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void manageSalesFigures() {
+		Double salesFigures = 0.0;
+    	for(Server s : servers) {
+    		salesFigures += s.getSalesFigures();
+    	}
+    	this.salesFigures = salesFigures;
     }
+	
+	public Double getSalesFigures() {
+		manageSalesFigures();
+		return salesFigures;
+	}
     
     public void serverTakeTable(Server server, Table table) {
     	if(!serviceInProgress) {
@@ -50,11 +63,20 @@ public class Restaurant {
     }
     
     public void manageOrder(Order order) {
-    	if(order.isOrderToTransmit()) ordersToTransmit.add(order);
+//    	if(order.isOrderToTransmit()) ordersToTransmit.add(order);
     	if(order.isFood()) kitchen.add(order);
     }
     
-    public void transmitOrderToCops() {
+    public void manageOrdersToTransmit() {
+    	List<Order> ordersToTransmit = new ArrayList<>();
+    	for(Server server : servers) {
+    		ordersToTransmit.addAll(server.getOrdersToTransmit());
+    	}
+    	this.ordersToTransmit = ordersToTransmit;
+    }
+    
+    public void transmitOrdersToCops() {
+    	manageOrdersToTransmit();
     	for(Order o : ordersToTransmit) {
     		o.transmitToCops();
     	}
@@ -71,5 +93,34 @@ public class Restaurant {
 
 	public void setMenu(Menu menu) {
 		this.menu = menu;
+	}
+	
+	public List<Order> getOrdersToTransmit(){
+		manageOrdersToTransmit();
+		return ordersToTransmit;
+	}
+	
+	public List<Table> getFreeTables(){
+		return freeTables;
+	}
+	
+	public void addServer(Server server) {
+		servers.add(server);
+		server.setRestaurant(this);
+	}
+
+	public void clearOrderToTransmit() {
+		ordersToTransmit.clear();
+		for(Server server : servers) {
+			server.clearOrdersToTransmit();
+		}
+	}
+
+	public void transmitOrderToCops() {
+    	manageOrdersToTransmit();
+    	for(Order o : ordersToTransmit) {
+    		o.transmitToCops();
+    	}
+    	clearOrderToTransmit();		
 	}
 }
