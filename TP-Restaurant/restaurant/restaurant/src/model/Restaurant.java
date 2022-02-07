@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Restaurant {
 	
-	private Table[] tablesArrays = {new Table(), new Table(), new Table()};
-	private List<Table> tables = Arrays.asList(tablesArrays);
+//	private Table[] tablesArrays = {new Table(), new Table(), new Table()};
+	private List<Table> tables = new ArrayList<>();
 	private List<Table> freeTables = tables;
 	private List<Server> servers = new ArrayList<Server>();
 	private List<Order> ordersToTransmit = new ArrayList<Order>();
@@ -122,5 +122,13 @@ public class Restaurant {
     		o.transmitToCops();
     	}
     	clearOrderToTransmit();		
+	}
+	
+	public void setKitchen(Kitchen kitchen) {
+		this.kitchen = kitchen;
+	}
+
+	public void addTable(Table table) {
+		tables.add(table);		
 	}
 }

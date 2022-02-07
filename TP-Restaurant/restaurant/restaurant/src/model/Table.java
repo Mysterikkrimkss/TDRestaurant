@@ -32,4 +32,8 @@ public class Table {
 	public void removeServer() {
 		server = null;
 	}
+	
+	public List<Dish> getDishes(){
+		return dishes;
+	}
 }
