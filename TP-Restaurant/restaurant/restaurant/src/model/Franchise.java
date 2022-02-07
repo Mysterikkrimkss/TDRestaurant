@@ -12,8 +12,13 @@ public class Franchise {
 
 	private Menu menu;
 	
+<<<<<<< HEAD
 	public Franchise() {
 		
+=======
+	public void setDishPrice(Dish dish, Double price) {
+		menu.setDishPrice(dish, price);
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 	}
 	
     public Franchise(List<Restaurant> restaurants) {
@@ -22,10 +27,13 @@ public class Franchise {
     	}
         this.restaurants = restaurants;
     }
+<<<<<<< HEAD
 	
 	public void setDishPrice(Dish dish, Double price) {
 		menu.setDishPrice(dish, price);
 	}
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
     
     public void manageOrders() {
     	for(Restaurant r : restaurants) {
@@ -35,6 +43,7 @@ public class Franchise {
     	}
     }
     
+<<<<<<< HEAD
     public void manageOrdersToTransmit() {
     	List<Order> ordersToTransmit = new ArrayList<>();
     	for(Restaurant restaurant : restaurants) {
@@ -43,12 +52,15 @@ public class Franchise {
     	this.ordersToTransmit = ordersToTransmit;
     }
     
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
     public void transmitOrderToCops() {
     	manageOrders();
     	for(Order o : ordersToTransmit) {
     		o.transmitToCops();
     	}
     	ordersToTransmit.clear();
+<<<<<<< HEAD
     	for(Restaurant restaurant : restaurants) {
     		restaurant.clearOrderToTransmit();
     	}
@@ -56,23 +68,32 @@ public class Franchise {
 
     public Double manageSalesFigures() {
     	salesFigures = 0.0;
+=======
+    }
+
+    public Double getSalesFigures() {
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
         for(Restaurant r : restaurants) {
         	salesFigures += r.getSalesFigures();
         }
         return salesFigures;
     }
     
+<<<<<<< HEAD
     public Double getSalesFigures() {
     	manageSalesFigures();
     	return salesFigures;
     }
     
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
     public void addDish(Dish dish) {
     	menu.add(dish);
     	for(Restaurant r : restaurants) {
     		r.addMenu(dish);
     	}
     }
+<<<<<<< HEAD
     
     public List<Order> getOrdersToTransmit(){
     	manageOrdersToTransmit();
@@ -82,4 +103,6 @@ public class Franchise {
     public void addRestaurant(Restaurant restaurant) {
     	restaurants.add(restaurant);
     }
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 }

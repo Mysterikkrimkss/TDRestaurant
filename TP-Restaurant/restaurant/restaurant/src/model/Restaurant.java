@@ -18,14 +18,21 @@ public class Restaurant {
 	
 	private Boolean serviceInProgress = false;
 	
+<<<<<<< HEAD
 	private Menu menu = new Menu();
 	
 	private Kitchen kitchen = new Kitchen();
+=======
+	private Menu menu;
+	
+	private Kitchen kitchen;
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 
     public Restaurant(List<Server> servers) {
         this.servers = servers;
     }
 
+<<<<<<< HEAD
     public Restaurant() {
 		// TODO Auto-generated constructor stub
 	}
@@ -42,6 +49,14 @@ public class Restaurant {
 		manageSalesFigures();
 		return salesFigures;
 	}
+=======
+    public Double getSalesFigures() {
+    	for(Server s : servers) {
+    		salesFigures += s.getSalesFigures();
+    	}
+    	return salesFigures;
+    }
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
     
     public void serverTakeTable(Server server, Table table) {
     	if(!serviceInProgress) {
@@ -68,11 +83,17 @@ public class Restaurant {
     }
     
     public void manageOrdersToTransmit() {
+<<<<<<< HEAD
     	List<Order> ordersToTransmit = new ArrayList<>();
     	for(Server server : servers) {
     		ordersToTransmit.addAll(server.getOrdersToTransmit());
     	}
     	this.ordersToTransmit = ordersToTransmit;
+=======
+    	for(Server server : servers) {
+    		ordersToTransmit.addAll(server.getOrdersToTransmit());
+    	}
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
     }
     
     public void transmitOrdersToCops() {
@@ -96,13 +117,17 @@ public class Restaurant {
 	}
 	
 	public List<Order> getOrdersToTransmit(){
+<<<<<<< HEAD
 		manageOrdersToTransmit();
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 		return ordersToTransmit;
 	}
 	
 	public List<Table> getFreeTables(){
 		return freeTables;
 	}
+<<<<<<< HEAD
 	
 	public void addServer(Server server) {
 		servers.add(server);
@@ -123,4 +148,6 @@ public class Restaurant {
     	}
     	clearOrderToTransmit();		
 	}
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 }

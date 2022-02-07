@@ -12,8 +12,11 @@ public class Butler extends Server{
 		super();
 		this.tables = tables;
 	}
+<<<<<<< HEAD
 
 	public Butler() {
 		// TODO Auto-generated constructor stub
 	}
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 }

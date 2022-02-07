@@ -51,9 +51,14 @@ public class Order {
 	
 	public Order checkOrderDate() {
 		LocalDate today = LocalDate.now();
+<<<<<<< HEAD
 		LocalDate outDate = takeDate.plusDays(15);
 		Boolean isOut = outDate.isBefore(today);
 		if(isOut && status!=OrderStatus.TRANSMIT_TO_COPS) {
+=======
+		long daysBetween = Duration.between(takeDate, today).toDays();
+		if(daysBetween>14 && status!=OrderStatus.TRANSMIT_TO_COPS) {
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 			status = OrderStatus.TO_TRANSMIT_TO_COPS;
 			return this;
 		}
@@ -65,10 +70,13 @@ public class Order {
 		if(status == OrderStatus.TO_TRANSMIT_TO_COPS) return true;
 		return false;
 	}
+<<<<<<< HEAD
 	
 	public void toTransmitToCops() {
 		status = OrderStatus.TO_TRANSMIT_TO_COPS;
 	}
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 
 	public void transmitToCops() {
 		status = OrderStatus.TRANSMIT_TO_COPS;
@@ -81,6 +89,7 @@ public class Order {
 	public Boolean isInStock() {
 		if(status.equals(OrderStatus.NOT_IN_STOCK)) return false;
 		return true;
+<<<<<<< HEAD
 	}	
 	
 	public Double getPrice() {
@@ -98,4 +107,8 @@ public class Order {
 	public void setTakeDate(LocalDate date) {
 		this.takeDate = date;
 	}
+=======
+	}
+	
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 }

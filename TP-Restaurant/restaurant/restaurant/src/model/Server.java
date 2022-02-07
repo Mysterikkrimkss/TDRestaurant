@@ -9,7 +9,11 @@ public class Server {
 	private Double salary;
     private Double salesFigures = 0.0;
     
+<<<<<<< HEAD
     private Restaurant restaurant = new Restaurant();
+=======
+    private Restaurant restaurant;
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
     
 	private List<Table> tables = new ArrayList<>();
     
@@ -17,6 +21,20 @@ public class Server {
     
     private List<Order> ordersToTransmit = new ArrayList<>();
 
+<<<<<<< HEAD
+=======
+    public Boolean takeOrder(Dish dish) {
+    	Order order = new Order(dish);
+    	if(order.isInStock()) {
+	    	orders.add(order);
+	        salesFigures += dish.getPrice();
+	        restaurant.manageOrder(order);
+	        return true;
+    	}
+    	return false;
+    }
+
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
     public Server() {
     	
     }
@@ -26,6 +44,7 @@ public class Server {
     	this.salary = salary;
     }
     
+<<<<<<< HEAD
     public Boolean takeOrder(Dish dish) {
     	Order order = new Order(dish);
     	if(order.isInStock()) {
@@ -54,6 +73,8 @@ public class Server {
         restaurant.manageOrder(order);
     }
     
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
     public void stopTable(Table table) {
     	tables.remove(table);
     	table.removeServer();
@@ -89,10 +110,13 @@ public class Server {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+<<<<<<< HEAD
 	
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 
 	public Double getSalary() {
 		return salary;
@@ -112,6 +136,7 @@ public class Server {
 	
 	public List<Order> getOrdersToTransmit() {
 		return this.ordersToTransmit;
+<<<<<<< HEAD
 	}
 
 	public void clearOrdersToTransmit() {
@@ -124,5 +149,7 @@ public class Server {
     		o.transmitToCops();
     	}
     	clearOrdersToTransmit();				
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 	}  
 }

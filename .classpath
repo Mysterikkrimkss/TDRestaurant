@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="TP-Restaurant/demo/demo/.mvn/wrapper"/>
+	<classpathentry excluding="com/example/restaurant/service/" kind="src" path="TP-Restaurant/demo/demo/src/main/java"/>
+	<classpathentry kind="src" path="TP-Restaurant/demo/demo/src/main/java/com/example/restaurant/service"/>
+	<classpathentry kind="src" path="TP-Restaurant/demo/demo/src/test/java"/>
+	<classpathentry kind="src" path="TP-Restaurant/restaurant/restaurant/src"/>
+	<classpathentry kind="lib" path="TP-Restaurant/demo/demo/bin/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -11,10 +11,13 @@ public class Menu {
 		dishes = menu.dishes;
 	}
 	
+<<<<<<< HEAD
 	public Menu() {
 		// TODO Auto-generated constructor stub
 	}
 
+=======
+>>>>>>> 2fb0ed95950daa3ff0ebffd8df5340890e3fc986
 	public void setDishPrice(Dish dish, Double price) {
 		if(dishes.contains(dish)) dish.setPrice(price);
 	}
