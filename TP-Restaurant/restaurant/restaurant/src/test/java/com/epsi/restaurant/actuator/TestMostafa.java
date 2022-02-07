@@ -56,32 +56,17 @@ public class priceTests {
   }
 } 
 
-
-
   @Test
-  @ValueSource(integers = {1, 3})
-  public void decrementDishTrue(Integer quantity) throws Exception 
+  public void DishNotEmpty() throws Exception 
   {
+    Server serveur = new Server();
     Dish plat = new Dish();
-    Boolean resultat =false;    
-    plat.setStock(quantity);
+    Kitchen cuisine = new Kitchen();
+    Table table = new Table();
 
-    resultat = plat.decrementStockAmount();
+    cuisine.prepareDish(serveur,table,plat);
 
-    assertEquals(true,resultat);
-  } 
-
- @Test
-  @ValueSource(integers = {-1, 0})
-  public void decrementDishFalse(Integer quantity) throws Exception 
-  {
-    Dish plat = new Dish();
-    Boolean resultat =false;    
-    plat.setStock(quantity);
-
-    resultat = plat.decrementStockAmount();
-
-    assertEquals(false,resultat);
+    assertNotEquals(table.getDish(),new ArrayList<>());
   }
 
 }

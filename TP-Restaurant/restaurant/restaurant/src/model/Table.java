@@ -21,6 +21,11 @@ public class Table {
 		dishes.add(dish);
 	}
 
+	public List<Dish> getDish()
+	{
+		return dishes;
+	}
+
 	public Server getServer() {
 		return server;
 	}
